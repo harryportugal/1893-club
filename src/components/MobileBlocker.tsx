@@ -36,7 +36,7 @@ export default function MobileBlocker() {
       </div>
 
       {/* Central Immersive Message */}
-      <div className="flex flex-col items-center gap-6 max-w-sm w-full z-10 text-center px-4">
+      <div className="flex flex-col items-center gap-6 max-w-sm w-full z-10 text-center px-4 relative -top-24">
         {/* Luxury Logo in Forest Green */}
         <motion.img
           initial={{ opacity: 0, y: 10 }}
@@ -55,7 +55,7 @@ export default function MobileBlocker() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl text-[#0d2315] font-normal leading-none"
+          className="text-4xl text-[#0d2315] font-normal leading-none -mt-16 relative z-20"
           style={{ fontFamily: "'Pinyon Script', cursive" }}
         >
           Immersive Journey
