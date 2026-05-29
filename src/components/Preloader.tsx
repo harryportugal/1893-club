@@ -87,16 +87,19 @@ export default function Preloader({ progress }: PreloaderProps) {
             Welcome to
           </motion.h2>
 
-          {/* High-end classic serif brand name in forest green */}
-          <motion.h1
-            initial={{ opacity: 0, letterSpacing: '0.1em' }}
-            animate={{ opacity: 1, letterSpacing: '0.22em' }}
+          {/* High-end transparent logo image in forest green using CSS filters */}
+          <motion.img
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4 }}
-            className="text-3xl sm:text-4xl text-[#0d2315] font-normal uppercase leading-tight mt-1"
-            style={{ fontFamily: "'Italiana', serif" }}
-          >
-            The 1893 Club
-          </motion.h1>
+            src="/the_club.webp"
+            alt="The Club Logo"
+            className="w-full max-w-[280px] sm:max-w-[320px] h-auto object-contain select-none pointer-events-none mt-1"
+            style={{ 
+              // CSS filter to color white logo to dark forest green (#0d2315)
+              filter: 'brightness(0) saturate(100%) invert(9%) sepia(21%) saturate(2200%) hue-rotate(95deg) brightness(92%) contrast(95%)'
+            }}
+          />
 
           {/* Luxury subtitle */}
           <span 
