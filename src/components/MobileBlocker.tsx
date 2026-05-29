@@ -37,23 +37,19 @@ export default function MobileBlocker() {
 
       {/* Central Immersive Message */}
       <div className="flex flex-col items-center gap-6 max-w-sm w-full z-10 text-center px-4">
-        {/* Luxury Crest / Symbol */}
-        <div className="w-12 h-12 rounded-full border border-[#0d2315]/10 flex items-center justify-center bg-white/30 backdrop-blur-sm mb-2 shadow-sm">
-          <svg 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="#0d2315" 
-            strokeWidth="1" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="17" x2="12" y2="21" />
-          </svg>
-        </div>
+        {/* Luxury Logo in Forest Green */}
+        <motion.img
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          src="/the_club.webp"
+          alt="The Club Logo"
+          className="w-full max-w-[240px] h-auto object-contain select-none pointer-events-none mb-2"
+          style={{ 
+            // CSS filter to color white logo to dark forest green (#0d2315)
+            filter: 'brightness(0) saturate(100%) invert(9%) sepia(21%) saturate(2200%) hue-rotate(95deg) brightness(92%) contrast(95%)'
+          }}
+        />
 
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
