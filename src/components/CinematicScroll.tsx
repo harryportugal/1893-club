@@ -458,7 +458,7 @@ export default function CinematicScroll({
 
       // Draw frames2 onto canvas2 ONLY if Subsection 1 is visible
       const canvas2 = canvas2Ref.current;
-      if (canvas2 && currentFrameVal >= 111 && currentFrameVal <= 131) {
+      if (canvas2 && currentFrameVal >= 111 && currentFrameVal <= 145) {
         const ctx2 = canvas2.getContext('2d');
         if (ctx2 && images2Ref.current.length > 0) {
           const img2 = images2Ref.current[idx2Clamped];
@@ -589,12 +589,16 @@ export default function CinematicScroll({
         container.style.borderTopRightRadius = `${currentRadius}px`;
       }
 
-      // Keep the RAF loop alive while lerp hasn't settled (buttery smooth and CPU friendly)
+      // Keep the RAF loop alive while lerp hasn't settled, borders are animating, or subsections are wiping/animating children
+      const containerIsAnimating = container && rect.top > 0 && rect.top < 300;
+      const subSectionIsAnimating = (subSection && currentFrameRef.current > 112 && currentFrameRef.current < 130) ||
+                                    (subSection2 && currentFrameRef.current > 130 && currentFrameRef.current < 146) ||
+                                    (subSection3 && currentFrameRef.current > 144 && currentFrameRef.current < 148.5);
       const lerpHasNotSettled = Math.abs(currentFrameRef.current - targetFrame) > 0.05 ||
                                 Math.abs(currentFrame2Ref.current - targetFrame2) > 0.05 ||
                                 Math.abs(currentFrame3Ref.current - targetFrame3) > 0.05;
 
-      if (lerpHasNotSettled) {
+      if (lerpHasNotSettled || containerIsAnimating || subSectionIsAnimating) {
         tickingRef.current = true;
         requestAnimationFrame(tick);
       }
