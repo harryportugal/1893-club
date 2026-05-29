@@ -78,7 +78,7 @@ export default function Preloader({ progress }: PreloaderProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-2xl sm:text-3xl text-[#0d2315] font-normal leading-none relative top-5 -mb-2"
+            className="text-2xl sm:text-3xl text-[#0d2315] font-normal leading-none relative top-11 -mb-4 z-20"
             style={{ 
               fontFamily: "'Pinyon Script', cursive",
               textShadow: '0 2px 10px rgba(13, 30, 21, 0.03)'
